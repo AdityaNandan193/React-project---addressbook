@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { ContactProvider } from "./context/ContactContext";
+import AddContact from "./components/AddContact";
+import ContactList from "./components/ContactList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ContactProvider>
+      <div className="container py-5">
+        <h1 className="text-center mb-5">Address Book</h1>
+        <div className="row">
+          <div className="col-md-4">
+            <AddContact />
+          </div>
+          <div className="col-md-8">
+            <ContactList />
+          </div>
+        </div>
+      </div>
+    </ContactProvider>
   );
 }
 
